@@ -64,4 +64,4 @@ count_kehu2  = count(save_sheet('Kehu2'))
 total_dosage = (sum_count(count_vijay1),sum_count(count_han1),sum_count(count_jason1),sum_count(count_xiaohong1),sum_count(count_kehu1))
 print total_dosage
 #figure_tatal = plt.subplot().bar(['Driving person1','D2','B','W1','W2'],total_dosage)
-#plt.show()
+plt.show()
