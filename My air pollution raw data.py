@@ -33,7 +33,14 @@ count_han3 = count(save_sheet('Han1009'))
 count_han4 = count(save_sheet('Han1109'))
 
 #figure1 = plt.plot(count_vijay1['timestampTime'],count_vijay1['dosage'],count_vijay2['timestampTime'],count_vijay2['dosage'],count_vijay3['timestampTime'],count_vijay3['dosage'])
-figure2 = plt.plot(count_han1['timestampTime'],count_han1['dosage'],count_han2['timestampTime'],count_han2['dosage'],count_han3['timestampTime'],count_han3['dosage'],count_han4['timestampTime'],count_han4['dosage'])
-figure_axes = plt.gca()
-figure_axes.set_ylim([0,40])
-plt.show()
+#figure2 = plt.plot(count_han1['timestampTime'],count_han1['dosage'],count_han2['timestampTime'],count_han2['dosage'],count_han3['timestampTime'],count_han3['dosage'],count_han4['timestampTime'],count_han4['dosage'])
+#figure_axes = plt.gca()
+#figure_axes.set_ylim([0,40])
+#plt.show()
+
+x = raw_input("please enter:")
+try:
+    myx = int(x)
+    print myx
+except :
+    print "wrong"

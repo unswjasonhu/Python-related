@@ -6,6 +6,7 @@ import datetime
 import numpy as np
 
 path = '/Users/jason/Dropbox/Paper/6th/trial/data/cleandata.xlsx'
+mypath = '/Users/jason/Dropbox/Paper/6th/trial/'
 
 #data = pd.read_excel(path,sheetname=['Vijay1','Vijay2','Han1','Han2','Jason1','Jason2','Xiaohong1','Xiaohong2','Kehu1','Kehu2'])
 data1 = pd.ExcelFile(path)
@@ -68,3 +69,4 @@ fig, ax = plt.subplots()
 ind = np.arange(5)
 figure_tatal = ax.bar(ind,total_dosage,0.35,color= 'r')
 plt.show()
+fig.savefig(mypath +'figure/figure_total1.eps',format = 'eps', dpi = 1200)
