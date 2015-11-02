@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import datetime
 import numpy as np
 
-path = '/Users/jason/Dropbox/Paper/6th/trial/data/cleandata.xlsx'
+path = '/Users/jason/Dropbox/Paper/6th/trial/data/cleandata1.xlsx'
 mypath = '/Users/jason/Dropbox/Paper/6th/trial/'
 
 #data = pd.read_excel(path,sheetname=['Vijay1','Vijay2','Han1','Han2','Jason1','Jason2','Xiaohong1','Xiaohong2','Kehu1','Kehu2'])
@@ -46,7 +46,7 @@ count_kehu2  = count(save_sheet('Kehu2'))
 #plt.plot(count_kehu1['timestampTime'],count_kehu1['dosage'],count_kehu2['timestampTime'],count_kehu2['dosage'])
 #plt.plot(count_vijay1['timestampTime'],count_vijay1['dosage'],count_jason1['timestampTime'],count_jason1['dosage'],count_xiaohong1['timestampTime'],count_xiaohong1['dosage'],count_kehu1['timestampTime'],count_kehu1['dosage'])
 #figure_vijay = plt.plot(count_vijay1['timestampTime'],count_vijay1['dosage'])
-#plt.legend(figure_vijay,['Driving person 1'])
+#plt.legend(figure_vijay,['Driving person'])
 #figure_han = plt.plot(count_han1['timestampTime'],count_han1['dosage'])
 #plt.legend(figure_han,['Driving person 2'])
 #figure_jason = plt.plot(count_jason1['timestampTime'],count_jason1['dosage'])
@@ -54,7 +54,10 @@ count_kehu2  = count(save_sheet('Kehu2'))
 #figure_xiaohong = plt.plot(count_xiaohong1['timestampTime'],count_xiaohong1['dosage'])
 #plt.legend(figure_xiaohong,['Walking person 1'])
 #figure_kehu = plt.plot(count_kehu1['timestampTime'],count_kehu1['dosage'])
-#plt.legend(figure_kehu,['Walking person 2'])
+#plt.legend(figure_kehu,['Walking person'])
+#plt.ylabel("Dosage")
+#figure_axes = plt.gca()
+#figure_axes.set_xlim([28000,88000])
 #plt.show()
 
 #print sum_count(count_vijay1)
@@ -63,10 +66,21 @@ count_kehu2  = count(save_sheet('Kehu2'))
 #print sum_count(count_xiaohong1)
 #print sum_count(count_kehu1)
 
-total_dosage = (sum_count(count_vijay1),sum_count(count_han1),sum_count(count_jason1),sum_count(count_xiaohong1),sum_count(count_kehu1))
-print total_dosage
+#total_dosage = (sum_count(count_vijay1),sum_count(count_han1),sum_count(count_jason1),sum_count(count_xiaohong1),sum_count(count_kehu1))
+#fig, ax = plt.subplots()
+#ind = np.arange(5)
+#figure_tatal = ax.bar(ind,total_dosage,0.35,color= 'r')
+#plt.show()
+#fig.savefig(mypath +'figure/figure_total1.eps',format = 'eps', dpi = 1200)
+
+total_dosage = (sum_count(count_vijay1),sum_count(count_jason1),sum_count(count_kehu1))
 fig, ax = plt.subplots()
-ind = np.arange(5)
-figure_tatal = ax.bar(ind,total_dosage,0.35,color= 'r')
+ind = 0.2
+figure_tatal1 = ax.bar(ind,sum_count(count_vijay1),0.5,color= 'r',label = "Driving")
+figure_tatal2 = ax.bar(ind + 1,sum_count(count_jason1),0.5,color= 'b',label = "Bicycling")
+figure_tatal3 = ax.bar(ind + 2,sum_count(count_kehu1),0.5,color="g",label = "Walking")
+plt.xlabel("Activity type")
+plt.ylabel("Dosage")
+plt.xticks((0.5,1.5,2.5),("Driving","Bicycling","Walking"))
 plt.show()
 fig.savefig(mypath +'figure/figure_total1.eps',format = 'eps', dpi = 1200)
